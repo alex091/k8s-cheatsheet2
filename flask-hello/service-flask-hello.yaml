@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: flask-hello
+  name: hello-kube
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: flask-hello
+  type: NodePort
